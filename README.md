@@ -1,1 +1,4 @@
-GO Photo Blog
+# Go Photo Blog
+
+A project for Go Web Development Course
+
