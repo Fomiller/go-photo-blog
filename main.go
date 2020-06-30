@@ -22,7 +22,7 @@ func main() {
 func indexHandler(res http.ResponseWriter, req *http.Request) {
 	c := getCookie(res, req)
 
-	tpl.ExecuteTemplate(res, "index.html", c.Value)
+	tpl.ExecuteTemplate(res, "index.gohtml", c.Value)
 
 }
 
