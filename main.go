@@ -21,6 +21,7 @@ func init() {
 
 func main() {
 	http.HandleFunc("/", indexHandler)
+	http.Handle("/public/", http.StripPrefix("/public", http.FileServer(http.Dir("./public"))))
 	http.Handle("/favicon.ico", http.NotFoundHandler())
 	http.ListenAndServe(":8080", nil)
 }
@@ -57,7 +58,7 @@ func indexHandler(res http.ResponseWriter, req *http.Request) {
 		c = appendValues(res, c, fname)
 	}
 	xs := strings.Split(c.Value, "|")
-	tpl.ExecuteTemplate(res, "index.gohtml", xs)
+	tpl.ExecuteTemplate(res, "index.gohtml", xs[1:])
 
 }
 
